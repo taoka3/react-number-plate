@@ -1,0 +1,201 @@
+:root {
+  --np-color-white: #fafafa;
+  --np-color-black: #18181b;
+  --np-color-green: #166534;
+  --np-color-yellow: #fdc700;
+
+  --np-color-input-white: #f4f4f5;
+  --np-color-input-black: #27272a;
+  --np-color-input-green: #15803d;
+  --np-color-input-yellow: #fce057;
+
+  --np-color-placeholoder-white: #e4e4e7;
+  --np-color-placeholoder-black: #3f3f46;
+  --np-color-placeholoder-green: #16a34a;
+  --np-color-placeholoder-yellow: #fef08a;
+}
+
+@font-face {
+  font-family: 'HinaMincho';
+  src: url('./assets/HinaMincho.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: 'ZenKakuGothicAntique';
+  src: url('./assets/ZenKakuGothicAntique.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: 'TrmFont';
+  src: url('./assets/TrmFontJB.ttf') format("truetype");
+}
+
+.number-plate {
+  width: 16.5rem;
+  display: flex;
+  flex-direction: column;
+  padding-right: 1.5rem;
+  padding-left: 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-radius: 0.75rem;
+  border-width: 0.5rem;
+  border-style: solid;
+  gap: 0.5rem;
+
+  select {
+    cursor: pointer;
+  }
+
+  input,
+  select {
+    outline-width: 0px;
+    border-radius: 5px;
+
+    &:disabled {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      cursor: text;
+    }
+  }
+
+  &.number-plate-white {
+    border-color: var(--np-color-input-white);
+    background-color: var(--np-color-white);
+
+    input,
+    select {
+      color: var(--np-color-green);
+      background-color: var(--np-color-input-white);
+
+      &::placeholder {
+        color: var(--np-color-placeholoder-white);
+      }
+
+      &:disabled {
+        background-color: var(--np-color-white);
+      }
+    }
+  }
+
+  &.number-plate-green {
+    border-color: var(--np-color-input-green);
+    background-color: var(--np-color-green);
+
+    input,
+    select {
+      color: var(--np-color-white);
+      background-color: var(--np-color-input-green);
+
+      &::placeholder {
+        color: var(--np-color-placeholoder-green);
+      }
+
+      &:disabled {
+        background-color: var(--np-color-green);
+      }
+    }
+  }
+
+  &.number-plate-yellow {
+    border-color: var(--np-color-input-yellow);
+    background-color: var(--np-color-yellow);
+
+    input,
+    select {
+      color: var(--np-color-input-black);
+      background-color: var(--np-color-input-yellow);
+
+      &::placeholder {
+        color: var(--np-color-placeholoder-yellow);
+      }
+
+      &:disabled {
+        background-color: var(--np-color-yellow);
+      }
+    }
+  }
+
+  &.number-plate-black {
+    border-color: var(--np-color-input-black);
+    background-color: var(--np-color-black);
+
+    input,
+    select {
+      color: var(--np-color-input-yellow);
+      background-color: var(--np-color-input-black);
+
+      &::placeholder {
+        color: var(--np-color-placeholoder-black);
+      }
+
+      &:disabled {
+        background-color: var(--np-color-black);
+      }
+    }
+  }
+}
+
+.number-plate-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.number-plate-input {
+  border: 0;
+
+  &.number-plate-input-area {
+    font-weight: bold;
+    width: 6rem;
+    padding: 0.25rem;
+    text-align: left;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+
+  &.number-plate-input-class {
+    width: 3.5rem;
+    padding: 0.25rem;
+    text-align: center;
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  &.number-plate-input-hira {
+    width: 2rem;
+    font-weight: 700;
+    text-align: center;
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  &.number-plate-input-number {
+    flex: 1 1 0%;
+    width: 100%;
+    padding: 0.5rem;
+    text-align: end;
+    font-size: 4.75rem;
+    line-height: 1;
+  }
+
+  &.number-plate-kanji {
+    font-family: 'ZenKakuGothicAntique';
+    font-weight: bold;
+    width: 6rem;
+    text-align: left;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    border-radius: 0.25rem;
+  }
+
+  &.number-plate-hira {
+    font-family: 'HinaMincho';
+  }
+
+  &.number-plate-number {
+    font-family: 'TrmFont';
+  }
+}
