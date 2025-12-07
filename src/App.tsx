@@ -1,11 +1,13 @@
-import { useState } from 'react';
+import { useState,useRef} from 'react';
 import NumberPlate from './NumberPlate';
+import DownloadButton from './DownloadButton';
 import './App.css';
 
 function App() {
   const [plateValue, setPlateValue] = useState('');
   const [color, setColor] = useState<'white' | 'green' | 'yellow' | 'black'>('white');
   const [disabled, setDisabled] = useState(false);
+  const compRef =  useRef<HTMLDivElement>(null);
 
   return (
     <div className="app">
@@ -14,12 +16,17 @@ function App() {
 
       <div className="demo-container">
         <NumberPlate
+          ref={compRef}
           value={plateValue}
           onChange={setPlateValue}
           color={color}
           disabled={disabled}
           required={false}
         />
+      </div>
+
+      <div className="controls">
+        <DownloadButton targetRef={compRef} />
       </div>
 
       <div className="controls">

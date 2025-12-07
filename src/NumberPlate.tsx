@@ -1,7 +1,9 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState}  from 'react';
+import type { RefObject } from 'react';
 import './NumberPlate.css';
 
 export interface NumberPlateProps {
+  ref?: RefObject<HTMLDivElement | null>;
   value?: string;
   onChange?: (value: string) => void;
   separate?: string;
@@ -72,6 +74,7 @@ const convertNumber = (str: string | number): string => {
 };
 
 const NumberPlate: React.FC<NumberPlateProps> = ({
+  ref,
   value = '',
   onChange,
   separate = ' ',
@@ -124,7 +127,7 @@ const NumberPlate: React.FC<NumberPlateProps> = ({
   }, [internalValue, separate, onChange]);
 
   return (
-    <div className={`number-plate number-plate-${color}`}>
+    <div ref={ref} className={`number-plate number-plate-${color}`}>
       <div className="number-plate-row">
         <select
           required={required}
